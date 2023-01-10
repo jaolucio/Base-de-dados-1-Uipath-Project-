@@ -1,0 +1,21 @@
+Essa automação realiza a população de uma fila no orquestrador com animes, ela entra em um site de animes (my anime list) e por meio da lista de melhores animes obtem um determinado numero de animes, numero esse inserido pelo usuário e assim popular uma fila no orquestrador com esses animes obtidos.
+
+Essa é a primeira automação de um projeto que irá conter duas automações. O objetivo dessa automação é, por meio do RPA, mostrar a obtenção de dados, filtragem e adição a uma fila de processamentos, para serem usados posteriormente, na segunda automação.
+
+Detalhamento.
+
+A primeira etapa dessa automação é a inicialização, de maneira comum é obtido todos os dados necessários que serão usados durante o processamento, como link para o site, local da fila, onde os dados serão armazenados e onde é obtido o número de animes que o usuário deseja obter.
+
+A segunda etapa é onde as verificação das transações são feitas, em particular essa automação não recebe um número de transações específicas, ele reconhece cada página da lista de animes como uma transação, cada página tem 50 animes, assim podendo afirmar que caso o usuário solicite 200 animes serão 4 páginas ou 4 transações.
+
+A terceira etapa é onde o processo é realizado, para cada transação ou cada página, essa etapa é realizada por completo. Podemos separar essa etapa em sub-etapas do processo.
+	1 - A primeira sub-etapa realiza a verificação se o número inserido pelo usuário do anime final está na página ou não, caso esteja a variável da transação é limpa para que ao fim da terceira etapa, a automação possa ser finalizada.
+	
+	2 - É obtido em uma variável dt número, nome do anime e url para acessar a página do anime
+	
+	3 - É feito a filtragem da tabela de animes, para deixar só o número requisitado pelo usuário
+	
+	4 - É inserido a lista de animes filtradas dentro da fila no orchestrator
+
+A quarta etapa resumindo é onde acontece a finalização da automação, seja de maneira natural, após ter obtido o resultado necessário, ou por qualquer erro existente, onde prints são obtidos mostrando o erro em questão.
+
